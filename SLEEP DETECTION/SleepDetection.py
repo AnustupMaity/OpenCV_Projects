@@ -136,6 +136,10 @@ while True:
             cv2.putText(frame, f"Last Slept: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(last_slept_time))}", (frame.shape[1] - 300, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
             cv2.putText(frame, f"Last Awake: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(last_awake_time))}", (frame.shape[1] - 300, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 2)
 
+            # Display status text on the frame
+            cv2.putText(face_frame, status, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 2)
+
+
             for n in range(0, 68):
                 (x, y) = landmarks[n]
                 cv2.circle(face_frame, (x, y), 1, (255, 255, 255), -1)
