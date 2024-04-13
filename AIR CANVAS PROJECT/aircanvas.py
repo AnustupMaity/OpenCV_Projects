@@ -45,9 +45,28 @@ hands = mpHands.Hands(max_num_hands=1, min_detection_confidence=0.7)
 mpDraw = mp.solutions.drawing_utils
 
 
+# # Ask the user if they want to continue with the default camera index
+# use_default_camera = input("Do you want to use the default camera index (0 for webcam)? (y/n): ").lower()
+
+# if use_default_camera == 'y':
+#     camera_index = 0  # Default camera index for webcam
+# else:
+#     while True:
+#         try:
+#             camera_index = int(input("Enter the camera index number: "))
+#             break
+#         except ValueError:
+#             print("Invalid input. Please enter a valid integer.")
+
+# # Initialize the webcam
+# cap = cv2.VideoCapture(camera_index)
+# ret = True
+
+
 # Initialize the webcam
 cap = cv2.VideoCapture(0)
 ret = True
+
 while ret:
     # Read each frame from the webcam
     ret, frame = cap.read()

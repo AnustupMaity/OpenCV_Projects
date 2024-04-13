@@ -81,6 +81,11 @@ if not cap.isOpened():
     exit()
 
 
+# # Initialize the webcam
+# cap = cv2.VideoCapture(0)
+# ret = True
+
+
 while True:
     _, frame = cap.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
