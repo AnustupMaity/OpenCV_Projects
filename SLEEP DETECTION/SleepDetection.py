@@ -58,8 +58,28 @@ def blinked(a, b, c, d, e, f):
     else:
         return 0
 
-# Initializing the camera and taking the instance
-cap = cv2.VideoCapture(0)
+# Ask user if they want to continue with the default camera index
+while True:
+    use_default = input("Do you want to continue with the default camera - WEBCAM (index = 0)? (y/n): ").lower()
+    if use_default == 'y':
+        cap = cv2.VideoCapture(0)  # Use default camera index
+        break
+    elif use_default == 'n':
+        while True:
+            try:
+                camera_index = int(input("Enter the index number of the camera device: "))
+                cap = cv2.VideoCapture(camera_index)  # Use the specified camera index
+                break
+            except ValueError:
+                print("Please enter a valid integer for the camera index.")
+        break
+    else:
+        print("Invalid input. Please enter 'y' or 'n'.")
+
+if not cap.isOpened():
+    print("Error: Unable to open the camera.")
+    exit()
+
 
 while True:
     _, frame = cap.read()
