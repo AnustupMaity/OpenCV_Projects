@@ -1,0 +1,110 @@
+# Title: Real-time Drawing Application with Hand Gesture Recognition
+# Author: Anustup Maity
+
+# Description:
+# This Python program allows users to draw on a canvas using hand gestures captured through a webcam.
+# It utilizes the MediaPipe library for hand landmark detection and OpenCV for real-time video processing.
+# Users can select different colors and clear the canvas using specific hand gestures.
+
+## Features
+- Real-time drawing on a canvas using hand gestures.
+- Hand gesture recognition for selecting colors and clearing the canvas.
+- Supports multiple colors: blue, green, red, and yellow.
+- Interactive user interface with clear button and color selection options.
+
+## Installation
+1. Ensure you have Python installed on your system.
+2. Install the required libraries using pip:
+   ```
+   pip install opencv-python numpy mediapipe
+   ```
+3. Clone or download the script `hand_gesture_drawing.py`.
+4. Run the script using a Python interpreter.
+
+## Usage
+1. Run the Python script (`hand_gesture_drawing.py`).
+2. Position your hand in front of the webcam.
+3. Use specific hand gestures to draw, select colors, and clear the canvas:
+   - Close all fingers to draw.
+   - Raise your thumb to switch colors.
+   - Touch your index finger to your thumb to clear the canvas.
+4. Enjoy drawing in real-time!
+
+## Algorithm
+
+### Hand Landmark Detection
+The program utilizes the MediaPipe library for hand landmark detection. The MediaPipe library provides pre-trained models for detecting key landmarks on the hand, such as the fingertips, palm, and knuckles. These landmarks are represented as (x, y) coordinates in the image frame.
+
+  ### Gesture Recognition
+The hand landmark coordinates are processed in real-time to recognize specific gestures performed by the user. The following gestures are supported:
+1. **Drawing**: Closing all fingers triggers the drawing mode. The program tracks the movement of the hand and draws lines on the canvas as the user moves their hand.
+2. **Color Selection**: Raising the thumb changes the selected color for drawing. Each time the thumb is raised, the program switches between predefined colors (blue, green, red, yellow).
+3. **Canvas Clearing**: Touching the index finger to the thumb clears the canvas. This gesture is interpreted as a command to erase all drawings on the canvas.
+
+### Drawing on Canvas
+Once a drawing gesture is detected, the program tracks the movement of the hand and draws lines on the canvas accordingly. It uses the (x, y) coordinates of the hand landmarks to draw lines between consecutive points, creating a smooth drawing experience.
+
+### User Interface
+The program provides an interactive user interface with buttons for color selection and canvas clearing. These buttons are drawn on the frame and respond to the corresponding hand gestures. The user can easily switch between colors and clear the canvas using intuitive hand movements.
+
+### Real-time Feedback
+The algorithm processes each frame from the webcam in real-time, providing instant feedback to the user. This allows for a seamless drawing experience and enhances user engagement.
+
+## Changing Camera Index for Webcam and Other Cameras
+By default, the program is set to use the webcam with an index value of 0. Users can change the camera index if they have multiple cameras connected to their system or if their webcam has a different index.
+
+### Default Camera Index (Webcam)
+The program is configured to use the default webcam with an index value of 0. No changes are required to use the default webcam.
+
+### Changing Camera Index
+If users want to use a different camera index, they can modify the code accordingly. Follow these steps to change the camera index:
+1. Locate the following section of code in the script:
+   ```python
+   # Default Camera Index for Webcam (0)
+   camera_index = 0
+   ```
+2. **Optional**: If users want to use a different camera index, they can uncomment the following code and update the value of `camera_index` to the desired index:
+   ```python
+   # # Ask the user if they want to continue with the default camera index
+   # use_default_camera = input("Do you want to use the default camera index (0 for webcam)? (y/n): ").lower()
+   # if use_default_camera == 'y':
+   #     camera_index = 0  # Default camera index for webcam
+   # else:
+   #     while True:
+   #         try:
+   #             camera_index = int(input("Enter the camera index number: "))
+   #             break
+   #         except ValueError:
+   #             print("Invalid input. Please enter a valid integer.")
+   ```
+3. **Comment Out Default Index**: To use a different camera index, comment out the default index value (0) as shown below:
+   ```python
+   # Default Camera Index for Webcam (0)
+   # camera_index = 0
+   ```
+
+4. Save the changes to the script.
+
+5. Run the script again, and it will now use the camera with the updated index.
+
+### Note:
+- The default index for the webcam is 0.
+- Users can uncomment the code for selecting a different camera index and comment out the default index value if they want to use a different camera.
+
+---
+
+Feel free to adjust the instructions based on your specific implementation and any additional details you'd like to provide.
+## Customization
+- You can adjust the hand gesture detection parameters in the code to optimize performance based on your environment.
+- Additional colors or features can be added by modifying the code accordingly.
+
+## Contributions
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Credits
+- Anustup Maity - Author
+- OpenCV, NumPy, MediaPipe - Libraries used
+
