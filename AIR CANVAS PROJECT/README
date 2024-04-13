@@ -58,42 +58,43 @@ The program is configured to use the default webcam with an index value of 0. No
 
 ### Changing Camera Index
 If users want to use a different camera index, they can modify the code accordingly. Follow these steps to change the camera index:
-1. Locate the following section of code in the script:
-   ```python
-   # Default Camera Index for Webcam (0)
-   camera_index = 0
-   ```
-2. **Optional**: If users want to use a different camera index, they can uncomment the following code and update the value of `camera_index` to the desired index:
-   ```python
-   # # Ask the user if they want to continue with the default camera index
-   # use_default_camera = input("Do you want to use the default camera index (0 for webcam)? (y/n): ").lower()
-   # if use_default_camera == 'y':
-   #     camera_index = 0  # Default camera index for webcam
-   # else:
-   #     while True:
-   #         try:
-   #             camera_index = int(input("Enter the camera index number: "))
-   #             break
-   #         except ValueError:
-   #             print("Invalid input. Please enter a valid integer.")
-   ```
-3. **Comment Out Default Index**: To use a different camera index, comment out the default index value (0) as shown below:
-   ```python
-   # Default Camera Index for Webcam (0)
-   # camera_index = 0
-   ```
 
-4. Save the changes to the script.
+# By default, the script initializes the webcam with index 0.
+# If you want to use a different camera index, you can uncomment the following lines and provide the desired index.
 
-5. Run the script again, and it will now use the camera with the updated index.
+# Make sure to comment out the default camera index (0) 
+
+"""
+cap = cv2.VideoCapture(0)
+ret = True
+
+"""
+
+And you uncomment these lines.
+
+# # Ask the user if they want to continue with the default camera index
+# use_default_camera = input("Do you want to use the default camera index (0 for webcam)? (y/n): ").lower()
+# if use_default_camera == 'y':
+#     camera_index = 0  # Default camera index for webcam
+# else:
+#     while True:
+#         try:
+#             camera_index = int(input("Enter the camera index number: "))
+#             break
+#         except ValueError:
+#             print("Invalid input. Please enter a valid integer.")
+
+# Initialize the webcam
+# cap = cv2.VideoCapture(camera_index)
+# ret = True
+
+Save the changes to the script.
+Run the script again, and it will now use the camera with the updated index.
 
 ### Note:
 - The default index for the webcam is 0.
 - Users can uncomment the code for selecting a different camera index and comment out the default index value if they want to use a different camera.
 
----
-
-Feel free to adjust the instructions based on your specific implementation and any additional details you'd like to provide.
 ## Customization
 - You can adjust the hand gesture detection parameters in the code to optimize performance based on your environment.
 - Additional colors or features can be added by modifying the code accordingly.
