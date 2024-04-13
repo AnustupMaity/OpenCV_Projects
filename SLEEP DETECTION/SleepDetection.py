@@ -21,7 +21,8 @@ color = (0, 0, 0)
 
 # Initializing face detector and landmark detector
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor("d:/Project/SLEEP DETECTION/shape_predictor_68_face_landmarks.dat")
+
 
 # Initialize face frame outside the loop
 face_frame = None
