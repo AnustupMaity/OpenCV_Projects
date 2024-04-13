@@ -1,0 +1,77 @@
+# Title: Sleep Detection using Facial Landmarks
+# Author: Anustup Maity
+
+# Description:
+# This program detects drowsiness and sleep based on facial landmarks obtained from the user's face using a webcam.
+# It utilizes computer vision techniques to detect facial landmarks, specifically eye blinks, to determine the drowsiness level of the user.
+# When the user's eyes are closed for an extended period, it triggers an alarm to alert the user.
+
+## Features
+- Real-time detection of drowsiness and sleepiness using a webcam.
+- Utilizes facial landmarks and blink detection for accurate assessment.
+- Alarms/alerts the user when drowsiness or sleep is detected.
+- Tracks and displays the total time spent awake, drowsy, and asleep.
+
+## Installation
+1. Ensure you have Python installed on your system.
+2. Install the required libraries using pip:
+   ```
+   pip install opencv-python numpy dlib imutils pygame
+   ```
+3. Download the shape predictor file (`shape_predictor_68_face_landmarks.dat`) and the sound files (`beep.wav` and `alarm.wav`).
+4. Place the downloaded files in the appropriate directory as specified in the code.
+
+# Libraries Used:
+import cv2  # For capturing video frames, image processing, and displaying images
+import numpy as np  # For numerical calculations
+import dlib  # For face detection and facial landmark detection
+from imutils import face_utils  # For basic image processing and convenience functions
+import pygame  # For playing sound alerts
+import time  # For tracking time
+
+# Algorithm:
+# 1. Face Detection: The program uses a pre-trained face detector from the dlib library to detect faces in the webcam feed.
+# 2. Facial Landmark Detection: Once a face is detected, the program uses a pre-trained facial landmark predictor to detect specific facial landmarks, particularly the landmarks corresponding to the eyes.
+# 3. Blink Detection: By calculating the ratio of distances between various landmarks around the eyes, the program determines whether the eyes are closed, open, or partially closed.
+# 4. State Classification: Based on the blink detection, the program classifies the user's state into three categories: sleeping, drowsy, or active.
+# 5. Alerts: Depending on the user's state, appropriate alerts (beep sounds) are played to alert the user.
+# 6. Time Tracking: The program tracks the total time the user spends in each state (awake, drowsy, and sleeping).
+
+# Assumptions:
+# 1. The program assumes that the user's face is adequately illuminated and within the camera frame for accurate detection.
+# 2. It assumes that facial landmarks corresponding to eye regions are reliably detected for blink detection.
+# 3. The program assumes that prolonged eye closure indicates drowsiness or sleepiness.
+
+# Data Used:
+# The program does not use any external data. It relies on real-time webcam input to detect facial landmarks and determine the user's state.
+
+# How to Run the Program:
+# 1. Ensure that Python and the required libraries are installed (cv2, numpy, dlib, imutils, pygame).
+# 2. Download the shape predictor file (shape_predictor_68_face_landmarks.dat) and the sound files (beep.wav and alarm.wav) and place them in the appropriate directory as specified in the code.
+# 3. Run the Python script (`sleep_detection.py`). It will prompt you to choose the camera index if you don't want to use the default webcam (index 0).
+# 4. Once the program starts running, it will continuously analyze the webcam feed and provide real-time feedback on the user's drowsiness state.
+#5. Press `Esc` to exit the program.
+
+# Changing Camera Index:
+# 1. If you want to use a different camera (other than the default webcam), you can specify the camera index when prompted at the beginning of the program.
+# 2. Enter the index number of the desired camera device when prompted, and the program will use that camera for further processing.
+
+## Customization
+- You can adjust the sensitivity thresholds for blink detection by modifying the ratio values in the `blinked()` function.
+- Additional features or modifications can be made to enhance the program's accuracy or functionality.
+
+# Additional Notes:
+# - Ensure that the required files (shape predictor file, sound files) are correctly located as specified in the code to avoid file path errors.
+# - You may need appropriate permissions to access the camera device.
+# - The program can be modified to adjust sensitivity thresholds for blink detection or to incorporate additional features for improved accuracy.
+
+## Contributions
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Credits
+- Anustup Maity - Author
+- OpenCV, NumPy, dlib, imutils, pygame - Libraries used
+
